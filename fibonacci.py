@@ -1,31 +1,29 @@
+from argparse import ArgumentParser, Namespace
 print('Hello World, I\'m Felix')
-"""
-	Author: Edgard Diaz
-	Date: March 25th 2020
-	
-	In this code a recursive function is developed to 
-	generate the first n numbers of the Fibonacci series
-"""
 
-def  fibonacci(n):
+def main():
+    print('Main method')
+    
+if __name__ =='__main__':
+    main()
 
-	if n == 1  or n == 0:
+parser = ArgumentParser()
+parser.add_argument('nth_term', help='The nth term of a fibonacci sequence', type=int)
+args: Namespace = parser.parse_args()
 
-		return n;
-
-	else:
-
-		return fibonacci(n-2) + fibonacci(n - 1)
-
-
-numero = int(input("ingrese un numero entero  positivo: "))
-
-if numero < 0:
-	print("Numero no valido")
-
-i = 0
-
-print("Secesion de fibonacci: ")
-
-for i in range(0, numero):
-	print(fibonacci(i))
+fib = 1
+fib1 = 1
+fib2 = 1
+if args.nth_term == 1 or args.nth_term == 2:
+    print('1')
+else:
+    print('1')
+    for n in range(2,args.nth_term):
+        print(f'{fib}')
+        fib = fib1 + fib2
+        fib1 = fib2
+        fib2 = fib
+    print(f'{fib}')
+    fib1 = 0
+    fib2 = 1
+    fib = 0
